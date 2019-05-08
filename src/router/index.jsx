@@ -16,15 +16,19 @@ import Index from '../pages/index.jsx';
 //pages
 
 //懒加载方式
-const Redux = lazyLoad(() => import(/* webpackChunkName: "redux" */'../pages/redux/redux'));
-const ReduxContainer = lazyLoad(() => import(/* webpackChunkName: "redux" */'../store/redux_thunk/container/reduxContainer'));
+const Redux_thunk = lazyLoad(() => import(/* webpackChunkName: "redux" */'../pages/redux/redux_thunk'));
+const Redux_saga = lazyLoad(() => import(/* webpackChunkName: "redux" */'../pages/redux/redux_saga'));
+const ReduxThunkContainer = lazyLoad(() => import(/* webpackChunkName: "redux" */'../store/redux_thunk/container/reduxContainer'));
+const ReduxSagaContainer = lazyLoad(() => import(/* webpackChunkName: "redux" */'../store/redux_saga/container/reduxContainer'));
 
 
 // 路由配置
 const routes = [
-  {path: "/", text: "ReduxContainer", component: ReduxContainer},
-  {path: "/redux", text: "Redux", component: Redux},
-  {path: "/reduxContainer", text: "ReduxContainer", component: ReduxContainer},
+  {path: "/", text: "", component: ReduxSagaContainer},
+  {path: "/redux_thunk", text: "Redux_thunk", component: Redux_thunk},
+  {path: "/redux_saga", text: "Redux_saga", component: Redux_saga},
+  {path: "/reduxThunkContainer", text: "ReduxThunkContainer", component: ReduxThunkContainer},
+  {path: "/reduxSagaContainer", text: "ReduxSagaContainer", component: ReduxSagaContainer},
 ];
 
 

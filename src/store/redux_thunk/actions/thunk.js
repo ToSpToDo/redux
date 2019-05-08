@@ -1,7 +1,6 @@
 import ajax from '../../../service/service'
 // actions
 export const THUNKOBJECT = 'THUNKOBJECT';
-export const THUNKAJAX = 'THUNKAJAX';
 export const THUNKFUNCING = 'THUNKFUNCING';
 export const THUNKFUNCSUCCESS = 'THUNKFUNCSUCCESS';
 export const THUNKFUNCERR = 'THUNKFUNCERR';

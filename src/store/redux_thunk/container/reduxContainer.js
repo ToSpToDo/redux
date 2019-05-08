@@ -7,11 +7,11 @@ import {withRouter} from 'react-router-dom'
 import {rootUserInfo, rootCityInfo} from '../actions/root';
 import {thunkAjax} from '../actions/thunk';
 //pages
-import redux from '../../../pages/redux/redux';
+import redux from '../../../pages/redux/redux_thunk';
 
 function mapStateToProps(state, ownProps) {
-  console.log("----------uiContainer of mapStateToProps----------");
-  console.log(state);// 全局state  参见 reducer/index.jsx
+  console.log("---------- mapStateToProps----------");
+  console.log(state);// 全局state
   console.log(ownProps);
   return {
     rootUserInfo: state.rootUserInfo,

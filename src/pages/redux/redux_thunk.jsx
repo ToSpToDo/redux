@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 require('./redux.less');
 
-export default class Redux extends React.Component {
+export default class ReduxThunk extends React.Component {
   constructor(props) {
     console.log(props);
     super(props);
@@ -25,7 +25,7 @@ export default class Redux extends React.Component {
   render() {
     const {rootUserInfo, setRootUserInfo, getThunkAjax, thunkAjax} = this.props;
     return (<div className="page-redux">
-      redux
+      <header> redux thunk</header>
       <button onClick={e => setRootUserInfo({userId: 'redux'})}>click</button>
       <div>{JSON.stringify(rootUserInfo)}</div>
       <button onClick={e => getThunkAjax({userId: 'redux'})}>click</button>

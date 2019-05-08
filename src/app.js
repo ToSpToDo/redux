@@ -5,7 +5,9 @@ import ReactDom from 'react-dom';
 
 //redux
 import {Provider} from 'react-redux';
-import store from './store/redux_thunk/index';
+
+// import store from './store/redux_thunk/index';
+import store from './store/redux_saga/index';
 
 
 //react-route
