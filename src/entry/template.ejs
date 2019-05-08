@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title><%= htmlWebpackPlugin.options.title||'react app' %></title>
+</head>
+
+<body class="up-body" id="root">
+<!--不建议直接将页面路由挂载在body下面。本项目中已经将routes封装在app.jsx中div.react-content里面了。所以可以直接挂载！-->
+</body>
+<% for (let item in htmlWebpackPlugin.options.scripts) { %>
+<script type="text/javascript" src="<%= htmlWebpackPlugin.options.scripts[item] %>"></script>
+<% } %>
+</html>
