@@ -1,7 +1,4 @@
-/**
- * Created by xiaogang on 2017/7/13.
- */
-"use strict";
+
 //base
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import reducers from './reducers/index';//all reduces

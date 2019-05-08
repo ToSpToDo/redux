@@ -1,8 +1,3 @@
-/**
- * Created by xiaogang on 2018/5/18.
- *
- */
-"use strict";
 
 //actions
 

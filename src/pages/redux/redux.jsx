@@ -7,8 +7,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+require('./redux.less');
 
-export default class redux extends React.Component {
+export default class Redux extends React.Component {
   constructor(props) {
     console.log(props);
     super(props);
@@ -22,13 +23,13 @@ export default class redux extends React.Component {
   static propTypes = {};
 
   render() {
-    const {rootUserInfo, setRootUserInfo} = this.props;
-    return (<div className="classify-item">
+    const {rootUserInfo, setRootUserInfo, getThunkAjax, thunkAjax} = this.props;
+    return (<div className="page-redux">
       redux
       <button onClick={e => setRootUserInfo({userId: 'redux'})}>click</button>
-      {
-        JSON.stringify(rootUserInfo)
-      }
+      <div>{JSON.stringify(rootUserInfo)}</div>
+      <button onClick={e => getThunkAjax({userId: 'redux'})}>click</button>
+      <div>{JSON.stringify(thunkAjax)}</div>
     </div>)
   }
 }

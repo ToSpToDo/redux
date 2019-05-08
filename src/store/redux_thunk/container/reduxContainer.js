@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 // v4 新增
 import {withRouter} from 'react-router-dom'
 //action
-import {rootUserInfo,rootCityInfo} from '../actions/root';
+import {rootUserInfo, rootCityInfo} from '../actions/root';
+import {thunkAjax} from '../actions/thunk';
 //pages
 import redux from '../../../pages/redux/redux';
 
@@ -14,7 +15,9 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
   return {
     rootUserInfo: state.rootUserInfo,
-    rootCityInfo: state.rootCityInfo
+    rootCityInfo: state.rootCityInfo,
+    thunkObject: state.thunkObject,
+    thunkAjax: state.thunkAjax
   }
 }
 
@@ -22,8 +25,8 @@ function mapDispatchToProps(dispatch, ownProps) {
   console.log("----------couterContainer of mapDispatchToProps----------");
   console.log(ownProps);
   return {
-    setRootCityInfo: (params) => dispatch(rootCityInfo(params)),
-    setRootUserInfo: (params) => dispatch(rootUserInfo(params)),
+    setRootUserInfo: params => dispatch(rootUserInfo(params)),
+    getThunkAjax: params => dispatch(thunkAjax(params))
   }
 }
 

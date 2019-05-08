@@ -1,6 +1,6 @@
 //action
 import {
-  ROOTCITYINFO, ROOTHEADERINFO, ROOTLOCALCITYINFO, ROOTLOCATIONINFO, ROOTMAP, ROOTPAY, ROOTUSERINFO
+  ROOTCITYINFO, ROOTLOCATIONINFO, ROOTUSERINFO
 } from '../actions/root';
 
 
@@ -17,7 +17,7 @@ export const rootLocationInfo = (
 
 
   switch (action.type) {
-    case "ROOTLOCATIONINFO":
+    case ROOTLOCATIONINFO:
       return {
         ...state,
         default: false,
@@ -44,7 +44,7 @@ export const rootCityInfo = (
   let _params = action.params;
 
   switch (action.type) {
-    case "ROOTCITYINFO":
+    case ROOTCITYINFO:
       return {
         ...state,
         default: false,
@@ -69,7 +69,7 @@ export const rootUserInfo = (
   let _params = action.params;
 
   switch (action.type) {
-    case "ROOTUSERINFO":
+    case ROOTUSERINFO:
       return Object.assign({}, state, _params);
     default :
       return state

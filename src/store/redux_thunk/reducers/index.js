@@ -9,9 +9,11 @@ import {
   rootLocationInfo,
   rootUserInfo
 } from './root';
+import {thunkAjax, thunkObject} from './thunk';
 
 
 //exports all reducers
 export default {
   rootCityInfo, rootLocationInfo, rootUserInfo,
+  thunkAjax, thunkObject
 }
