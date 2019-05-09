@@ -3,7 +3,8 @@
  * @param params
  * @returns {Promise<any>}
  */
-export default function ajax(params = {}) {
+exports.ajax = function (params = {}) {
+  console.log(params);
   let isPromise = params.async || !params.callback;
   let _callback = params.callback || function (data, code, msg) {
     console.log(data, code, msg)
@@ -20,5 +21,8 @@ export default function ajax(params = {}) {
 
   })
 
-
 }
+
+// export default function ajax() {
+//
+// }

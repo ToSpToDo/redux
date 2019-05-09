@@ -23,12 +23,12 @@ export default class ReduxSaga extends React.Component {
   static propTypes = {};
 
   render() {
-    const {sagaAjax, sagaObject, setSagaObject} = this.props;
+    const {sagaAjax, sagaObject, setSagaObject, setSagaAjax} = this.props;
     return (<div className="page-redux">
       <header>redux saga</header>
       <button onClick={e => setSagaObject({redux: 'saga'})}>click</button>
       <div>{JSON.stringify(sagaObject)}</div>
-      <button onClick={e => setSagaObject({redux: 'saga'})}>click</button>
+      <button onClick={e => setSagaAjax({redux: 'saga'})}>click</button>
       <div>{JSON.stringify(sagaAjax)}</div>
     </div>)
   }

@@ -25,7 +25,8 @@ export const thunkObject = (params = {}) => {
  */
 export const thunkAjax = (params = {}) => (dispatch, getState) => {
   dispatch(thunkFuncIng());
-  return ajax({
+  return ajax.ajax({
+    url: 'thunkAjax.url : 所有接口服务配置化，同业务逻辑层分离维护！业务层只需负责该接口所需的业务数据data',
     data: {
       'action_type': '采用thunk处理函数action',
       ...params
