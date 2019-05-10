@@ -2,7 +2,31 @@
 - 采用函数式编程的状态集中管理
 - src：源码结构简洁清晰
 
-### compose
+### 使用
+```js
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+//all reduces ：index文件集中导出各个reducer文件
+import reducers from './reducers/index';
+import thunk from 'redux-thunk'; 
+
+let store = createStore(
+    combineReducers(reducers),
+    //一般都直接在reducers的各个子模块的函数中自行初始化。
+    // preloadedState,
+    // enhancer函数：enhancer(createStore)(reducer, preloadedState)
+    applyMiddleware(...[middleware])
+  );
+```
+
+### createStore(reducer, preloadedState, enhancer)
+- 入参
+  - reducer ：每个根reducer就是一个纯函数。实际开发中一般分模块维护各reducer，然后统一导出reducers。
+  - preloadedState ：实际项目开发中基本不用，都是各根reducer自行初始化。统一反而不方便维护！
+  - enhancer ：有插件存在时（递归处理），return enhancer(createStore)(reducer, preloadedState) 
+    - 入参：createStore 函数
+    - 返参：新的（处理过 or 加强的） createStore 函数
+
+### compose(...funcArr)
 > Composes functions from right to left.
 >
 > This is a functional programming utility, and is included in Redux as a convenience.
@@ -35,8 +59,9 @@ compose = (...funcs) => {
 > The most common use case for middleware is to support asynchronous actions without much boilerplate code or a dependency on a library like Rx. It does so by letting you dispatch async actions in addition to normal actions.
 - Arguments
 >  ...middleware (arguments): Functions that conform to the Redux middleware API. Each middleware receives Store's dispatch and getState functions as named arguments, and returns a function. That function will be given the next middleware's dispatch method, and is expected to return a function of action calling next(action) with a potentially different argument, or at a different time, or maybe not calling it at all. The last middleware in the chain will receive the real store's dispatch method as the next parameter, thus ending the chain. So, the middleware signature is ({ getState, dispatch }) => next => action.
-- 解释：
+- 具体的某个middleware要求：
   ```js
+  
   /**
   * 必须是一个函数 & 同时接收两个入参 {dispatch,getState} & 必须再返回一个（回调）函数；方便后续插件使用
   * getState :func 方便获取其他状态 
@@ -65,18 +90,18 @@ compose = (...funcs) => {
   }
   // 函数式调用
   // middleware({ getState, dispatch }) => next => action=> typeof action === 'function' ? action(dispatch, getState) : next(action)
-  // 非函数式调用
+  // 非函数式调用（当然不支持，只是便于理解）
   // function middleware({dispatch,getState,next,action})=>{
           // do something when action!==object 
           // default store.dispatch(action)
           //return next(action);
   // }
-  let store = createStore(
-    combineReducers(yourReducers={}),
-    // composable: 顺序无关性
-    applyMiddleware(...[middleware])
-  );
+ 
   ```
+- Returns
+> (Function) A store enhancer that applies the given middleware. The store enhancer signature is createStore => createStore but the easiest way to apply it is to pass it to createStore() as the last enhancer argument.
+- 源码分析
+
   
 ### 参考
 - https://redux.js.org/api/applymiddleware
