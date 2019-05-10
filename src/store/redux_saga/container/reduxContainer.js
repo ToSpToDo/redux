@@ -19,6 +19,7 @@ function mapStateToProps(state, ownProps) {
 //not function
 const mapDispatchToProps = {
   setSagaObject: sagaObject,
+  setSagaAjax: sagaAjax
 }
 
 
