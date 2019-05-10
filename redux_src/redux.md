@@ -1,5 +1,33 @@
 ## redux
 - 采用函数式编程的状态集中管理
+- src：源码结构简洁清晰
+
+### compose
+> Composes functions from right to left.
+>
+> This is a functional programming utility, and is included in Redux as a convenience.
+
+- Arguments
+> (arguments): The functions to compose. Each function is expected to accept a single parameter. Its return value will be provided as an argument to the function standing to the left, and so on. The exception is the right-most argument which can accept multiple parameters, as it will provide the signature for the resulting composed function.
+- Returns
+> (Function): The final function obtained by composing the given functions from right to left.
+- 源码 
+```js
+// compose(f, g, h)(...args) => (...args) => f(g(h(...args)))
+compose = (...funcs) => {
+  if (funcs.length === 0) {
+    return arg => arg
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0]
+  }
+
+  return funcs.reduce((newFunc, func) => (...args) => newFunc(func(...args)))
+}
+
+```
+
 
 ### applymiddleware(...middlewareArr:[])
 > Middleware is the suggested way to extend Redux with custom functionality. Middleware lets you wrap the store's dispatch method for fun and profit. The key feature of middleware is that it is composable. Multiple middleware can be combined together, where each middleware requires no knowledge of what comes before or after it in the chain.
