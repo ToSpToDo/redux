@@ -25,11 +25,13 @@ export default class ReduxSaga extends React.Component {
   render() {
     const {sagaAjax, sagaObject, setSagaObject, setSagaAjax} = this.props;
     return (<div className="page-redux">
-      <header>redux saga</header>
+      <header>redux saga </header>
       <button onClick={e => setSagaObject({redux: 'saga'})}>click</button>
       <div>{JSON.stringify(sagaObject)}</div>
       <button onClick={e => setSagaAjax({redux: 'saga'})}>click</button>
       <div>{JSON.stringify(sagaAjax)}</div>
+      <hr/>
+      <a href='#reduxThunkContainer'>to reduxThunkContainer page</a>
     </div>)
   }
 }

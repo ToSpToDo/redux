@@ -30,6 +30,8 @@ export default class ReduxThunk extends React.Component {
       <div>{JSON.stringify(rootUserInfo)}</div>
       <button onClick={e => getThunkAjax({userId: 'redux'})}>click</button>
       <div>{JSON.stringify(thunkAjax)}</div>
+      <hr/>
+      <a href='#reduxSagaContainer'>to reduxSagaContainer page</a>
     </div>)
   }
 }

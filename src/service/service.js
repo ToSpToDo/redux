@@ -4,7 +4,6 @@
  * @returns {Promise<any>}
  */
 exports.ajax = function (params = {}) {
-  console.log(params);
   let isPromise = params.async || !params.callback;
   let _callback = params.callback || function (data, code, msg) {
     console.log(data, code, msg)

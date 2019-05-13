@@ -9,6 +9,5 @@ const store = createStore(
   combineReducers(reducers),
   applyMiddleware(sagaMiddleware)
 )
-
 sagaMiddleware.run(rootSaga)
 export default store

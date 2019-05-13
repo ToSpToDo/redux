@@ -10,8 +10,7 @@ function* sagaAjax(action) {
   try {
     //  todo:
     //  1、非对象下的函数，通过call调用会报错，走catch
-    //  2、 封装的 Promise 内部不执行
-    const data = call(ajax.ajax, {
+    const data = yield call(ajax.ajax, {
       url: 'sagaAjax.url : 所有接口服务配置化，同业务逻辑层分离维护！业务层只需负责该接口所需的业务数据data',
       data: {
         'action_type': '采用saga处理函数action',
@@ -19,7 +18,6 @@ function* sagaAjax(action) {
       }
     });
     // const data = yield call(axios.get, 'https://jsonplaceholder.typicode.com/users');
-    console.log(data)
     yield put(sagaFuncSuccess(data));
   } catch (err) {
     console.log(err)
